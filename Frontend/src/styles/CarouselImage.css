@@ -1,0 +1,32 @@
+.carousel-image-main{
+  border-bottom: 2px solid rgb(235, 235, 235);
+
+}
+.carousel-image-upper-main{
+    display: flex;
+
+
+}
+.carousel-image-upper-left-picture{
+    width: 50rem;
+    height: 15rem;
+  border-bottom: 3px solid rgb(235, 235, 235);
+
+}
+.carousel-image-upper-right-picture{
+    width: 29rem;
+    height: 15rem;
+  border-bottom: 3px solid rgb(235, 235, 235);
+
+
+}
+.carousel-image-lower-main{
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+    color: #7a7a7a;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1.3rem;
+  padding-bottom: 1.5rem;
+
+}

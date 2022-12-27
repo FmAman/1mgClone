@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap');
+
+.cart-main {
+  display: flex;
+  justify-content: space-around;
+  font-family: "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-bottom: 4rem;
+  padding-top: 1rem;
+}
+.cart-main-map{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.cart-main-container{
+    
+    background-color: #f8f8f8;
+}
+.cart-left-delete-span{
+    margin-left: 4px;
+    color: #757575;
+
+}
+.cart-left-delete-span:hover{
+    color: rgb(255, 111, 97);
+    cursor: pointer;
+}
+.cart-left-delete{
+    margin-right: 4px;
+    margin-bottom: 2px;
+    margin-left: 5px;
+
+}
+.cart-left-bottom-main{
+  display: flex;
+  justify-content: space-between;
+}
+.cart-left-add-remove{
+  display: flex;
+}
+.cart-left-quantity-image{
+  max-width: 100%;
+vertical-align: top;
+border: 0;
+cursor: pointer;
+}
+.cart-left-quantity{
+  width: 15px;
+height: 20px;
+text-align: center;
+vertical-align: middle;
+align-items: center;
+padding-top: 5px;
+}
+.cart-left-quantity-text{
+  color: #212121;
+font-size: 14px;
+}
+.cart-main-title{
+    color: rgb(255, 111, 97);
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 1.5rem;
+    padding-top: 1.5rem;
+    
+}
+.cart-left-main {
+  color: #333;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  font-size: 12px;
+  background: #fff;
+  /* margin-bottom: 16px; */
+  border-radius: 2px;
+  padding: 4px;
+  padding-bottom: 1rem;
+  border-bottom: 0;
+  /* padding-bottom: 5px; */
+  margin-top: 26px;
+  /* margin-bottom: 100px; */
+  /* width: 41%; */
+  
+}
+.cart-left-lower-span{
+    text-decoration:line-through;
+}
+
+.cart-left-upper {
+  justify-content: space-between;
+  display: flex;
+  font-size: 14px;
+  line-height: 1.8rem;
+  margin-top: 20px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 600;
+  color: black;
+}
+.cart-left-lower {
+  display: flex;
+  justify-content: space-between;
+  color: #757575;
+  font-size: 13px;
+  line-height: 1.8rem;
+  padding-bottom: 5px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.cart-right-main-container {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  color: #757575;
+  font-size: 12px;
+  margin-top: 26px;
+  width: 31%;
+  padding-top: 8px;
+  margin-bottom: 10px;
+  padding: 4px;
+  height: min-content;
+}
+
+.cart-right-mrp {
+  display: flex;
+  justify-content: space-between;
+  color: #757575;
+  font-size: 12px;
+  line-height: 1.8rem;
+  padding-bottom: 5px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  align-items: center;
+}
+.cart-right-discount {
+  display: flex;
+  justify-content: space-between;
+  color: #757575;
+  font-size: 12px;
+  line-height: 1.8rem;
+  padding-bottom: 5px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.cart-right-shipping {
+  display: flex;
+  justify-content: space-between;
+  color: #757575;
+  font-size: 12px;
+  line-height: 1.8rem;
+  padding-bottom: 5px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom: 0.5px solid #757575;
+}
+.cart-right-topay {
+  display: flex;
+  justify-content: space-between;
+  color: #757575;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.8rem;
+  padding-bottom: 5px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.cart-right-savings {
+  background-color: #e4f6e7;
+  display: flex;
+  justify-content: space-between;
+  color: #757575;
+  font-size: 12px;
+  line-height: 1.8rem;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  align-items: center;
+  text-align: center;
+}
+.cart-right-button {
+  background-color: rgb(255, 111, 97);
+  color: rgb(255, 255, 255);
+  padding-top: 5px;
+  padding-right: 16px;
+  padding-bottom: 5px;
+  padding-left: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 4px;
+  z-index: 100;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255, 111, 97);
+  width: 100%;
+  margin-bottom: 5px;
+}
+.cart-left-upper-value{
+  padding-left: 0.5rem;
+}

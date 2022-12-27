@@ -1,0 +1,126 @@
+.main-header-container {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  margin-top: 0;
+}
+.header-left-main {
+  display: flex;
+  font-family: "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  text-align: center;
+  align-items: center;
+  font-weight: 600;
+}
+.header-right-main {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  color: #474747;
+  font-size: 13px;
+  font-weight: 450;
+}
+.header-right-login-signup{
+  display: flex;
+}
+.header-icon-image {
+  height: 15px;
+  cursor: pointer;
+}
+.header-medicines {
+  padding-left: 2rem;
+  color: #ff6f61;
+  cursor: pointer;
+}
+
+.header-lab-tests {
+  padding-left: 1.2rem;
+  cursor: pointer;
+}
+.header-lab-tests:hover {
+  color: #ff6f61;
+}
+.header-safe {
+  background-color: #ff6f61;
+  color: white;
+  font-size: 11px;
+  border-radius: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-left: 0.2rem;
+  cursor: pointer;
+}
+.header-consult-doctors {
+  padding-left: 1.2rem;
+  cursor: pointer;
+}
+.header-consult-doctors:hover {
+  color: #ff6f61;
+}
+.header-covid-19 {
+  padding-left: 1.2rem;
+  cursor: pointer;
+}
+.header-covid-19:hover {
+  color: #ff6f61;
+}
+.header-ayurveda {
+  padding-left: 1.2rem;
+  cursor: pointer;
+}
+.header-ayurveda:hover {
+  color: #ff6f61;
+}
+.header-care-plan {
+  padding-left: 1.2rem;
+  cursor: pointer;
+}
+.header-care-plan:hover {
+  color: #ff6f61;
+}
+.header-save-more {
+  background-color: #ff6f61;
+  color: white;
+  font-size: 11px;
+  border-radius: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-left: 0.2rem;
+}
+.header-login {
+  margin-left: 1.3rem;
+  cursor: pointer;
+}
+.header-login-admin{
+  margin-left: 1rem;
+  cursor: pointer;
+  
+}
+.header-split {
+  margin-left: 0.5rem;
+}
+.header-signup {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+.header-offers {
+  margin-left: 1.3rem;
+  cursor: pointer;
+}
+.header-shopping-cart {
+  margin-left: 2.2rem;
+  cursor: pointer;
+}
+.header-cart-icon {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.header-need-help {
+  margin-left: 2.2rem;
+}

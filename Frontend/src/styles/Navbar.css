@@ -1,0 +1,100 @@
+.nav-bar-main {
+  display: flex;
+  font-size: small;
+  justify-content: space-evenly;
+  padding: 0.6rem;
+  background-color: #ffffff;
+}
+.health-dropdown-main {
+  display: none;
+}
+.nav-bar-health-resource:hover .health-dropdown-main {
+  display: block;
+}
+.health-dropdown-main {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  color: black;
+  z-index: 1;
+  text-align: left;
+  margin-right: 60.5rem;
+  padding-top: 20px;
+  margin-top: 15px;
+  padding-right: 10px;
+  border-radius: 0 0 3px 3px;
+  background-color: #ffffff;
+  /* box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.2); */
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 2;
+}
+.health-dropdown-ul {
+  list-style: none;
+  margin-right: 05px;
+}
+.health-dropdown-li:hover {
+  color: #ff6f61;
+}
+.nav-bar-health-resource {
+  display: flex;
+}
+.nav-bar-health-resource:hover {
+  color: #ff6f61;
+}
+.nav-bar-vitamins {
+  display: flex;
+  margin-left: 1.2rem;
+}
+.nav-bar-vitamins:hover {
+  color: #ff6f61;
+}
+.nav-bar-diabetes {
+  display: flex;
+  margin-left: 1.2rem;
+}
+.nav-bar-diabetes:hover {
+  color: #ff6f61;
+}
+.nav-bar-healthcare {
+  margin-left: 1.2rem;
+  display: flex;
+}
+.nav-bar-healthcare:hover {
+  color: #ff6f61;
+}
+.nav-bar-health-conditions {
+  display: flex;
+  margin-left: 1.2rem;
+}
+.nav-bar-health-conditions:hover {
+  color: #ff6f61;
+}
+.nav-bar-personal {
+  display: flex;
+  margin-left: 1.2rem;
+}
+.nav-bar-personal:hover {
+  color: #ff6f61;
+}
+.nav-bar-ayurveda {
+  display: flex;
+  margin-left: 1.2rem;
+}
+.nav-bar-ayurveda:hover {
+  color: #ff6f61;
+}
+.nav-bar-homeopathy {
+  display: flex;
+  margin-left: 1.2rem;
+}
+.nav-bar-homeopathy:hover {
+  color: #ff6f61;
+}
+.nav-bar-featured {
+  display: flex;
+  margin-left: 1.2rem;
+}
+.nav-bar-featured:hover {
+  color: #ff6f61;
+}

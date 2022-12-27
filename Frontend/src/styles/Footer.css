@@ -1,0 +1,222 @@
+.footer-main-container {
+  border-top: 2px solid rgb(235, 235, 235);
+  margin-bottom: 0;
+}
+.footer-count {
+  align-items: center;
+  text-align: center;
+  font-family: "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.footer-border {
+  height: 1px;
+  border: 1px solid #eaeaea;
+  z-index: 9999;
+  width: 90%;
+  margin: 24px auto;
+}
+.footer-bottom-main {
+  background-color: #fffcf8;
+}
+.footer-border-down {
+  height: 1px;
+  border: 1px solid #eaeaea;
+  z-index: 9999;
+  width: 90%;
+  margin: 24px auto;
+}
+.footer-count-upper {
+  font-size: 24px;
+  padding: 24px;
+}
+.footer-count-lower {
+  display: flex;
+  justify-content: space-evenly;
+}
+.footer-count-lower-number {
+  font-size: 32px;
+  font-weight: 700;
+}
+.footer-count-lower-text {
+  font-size: 16px;
+}
+.footer-send-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgb(235, 235, 235);
+}
+.footer-send-link-text {
+  font-size: 20px;
+  margin-right: 36px;
+}
+.footer-send-link-number {
+  height: 40px;
+  width: 300px;
+  border: none;
+  background-color: #f1f4f6;
+  padding-left: 15px;
+  vertical-align: middle;
+  font-size: small;
+  border-radius: 2px;
+}
+.footer-send-link-button {
+  border-radius: 4px;
+  background-color: #ff6f61;
+  width: 112px;
+  height: 40px;
+  margin-left: 8px;
+  border: none;
+  vertical-align: middle;
+  color: #fff;
+}
+.footer-feature {
+  background-color: #fffcf8;
+  display: flex;
+  justify-content: space-evenly;
+  padding-left: 17px;
+  padding-right: 17px;
+  padding-top: 44px;
+  padding-bottom: 44px;
+  font-family: "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+.footer-feature-know-us-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-feature-know-us-ul > li {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.81;
+}
+.footer-ul-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+.footer-feature-connect-button {
+  border-radius: 4px;
+  background-color: #ff6f61;
+  width: 112px;
+  height: 40px;
+  border: none;
+  vertical-align: middle;
+  color: #fff;
+  font-weight: 600;
+}
+.footer-feature-connect-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-feature-connect-ul > li {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.81;
+}
+.footer-feature-download-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-feature-download-app-li-play {
+  background: url(https://www.ardevaz.com/en/wp-content/uploads/2015/06/Ardevaz-app-for-Android-on-Google-Play.png)
+    no-repeat;
+  background-size: contain;
+  width: 136px;
+  height: 41px;
+  margin-bottom: 10px;
+}
+.footer-feature-download-app-li-app {
+  background: url(https://logos-download.com/wp-content/uploads/2016/06/Download_on_the_App_Store_logo.png)
+    no-repeat;
+  background-size: contain;
+  width: 122px;
+  height: 43px;
+}
+.footer-secure {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #fffcf8;
+  font-family: "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+.footer-secure-reliable {
+  display: flex;
+  margin-left: 23px;
+  text-align: left;
+}
+.footer-secure-secure {
+  display: flex;
+}
+.footer-secure-affordable {
+  display: flex;
+}
+.footer-secure-relaible-logo {
+  background: url(https://onemg.gumlet.io/secure-rebrand_x6f8yq.svg) no-repeat;
+  width: 98px;
+  height: 98px;
+}
+.footer-secure-secure-logo {
+  background: url(https://onemg.gumlet.io/reliable-rebrand_rcpof3.svg) no-repeat;
+  width: 98px;
+  height: 98px;
+}
+.footer-secure-affordable-logo {
+  background: url(https://onemg.gumlet.io/affordable-rebrand_ivgidq.svg)
+    no-repeat;
+  width: 98px;
+  height: 98px;
+}
+.footer-secure-header {
+  font-size: 26px;
+  color: black;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.footer-secure-reliable-text {
+  font-size: 12px;
+  margin: 0;
+  opacity: 0.7;
+  max-width: 250px;
+}
+.footer-secure-secure-text {
+  font-size: 12px;
+  margin: 0;
+  opacity: 0.7;
+  max-width: 250px;
+}
+.footer-secure-affordable-text {
+  font-size: 12px;
+  margin: 0;
+  opacity: 0.7;
+  max-width: 250px;
+}
+.footer-rights {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #536971;    
+  margin: 12px;
+  font-weight: 700;
+  font-family: "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+.footer-rights-left{
+    opacity: 0.6;
+
+}
+.footer-rights-right {
+  background: url(https://static.shoplightspeed.com/shops/604050/files/009303783/all-methods.png)
+    no-repeat;
+  width: 153px;
+  height: 47px;
+  background-size: contain;
+}
