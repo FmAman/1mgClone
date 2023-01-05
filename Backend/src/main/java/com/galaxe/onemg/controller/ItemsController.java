@@ -59,7 +59,7 @@ public class ItemsController {
 		return responseEntity;
 	}
 
-	@GetMapping("getitems")
+	@GetMapping("getitems/Relevance")
 	public ResponseEntity<?> getItems() throws ItemDoesNotExistException {
 		ResponseEntity<?> responseEntity = null;
 		try {
@@ -73,7 +73,77 @@ public class ItemsController {
 		}
 		return responseEntity;
 	}
+	
+	@GetMapping("getitems/NameDsc")
+	public ResponseEntity<?> getItemsByNameDesc() throws ItemDoesNotExistException {
+		ResponseEntity<?> responseEntity = null;
+		try {
+			List<ItemsDto> listItems = itemsServiceImpl.getItemsSortNameDesc();
+			responseEntity = new ResponseEntity<List<ItemsDto>>(listItems, HttpStatus.ACCEPTED);
+		} catch (ItemDoesNotExistException e) {
+			throw new ItemDoesNotExistException(e.getMessage());
+		} catch (Exception e) {
+			responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 
+		}
+		return responseEntity;
+	}
+	@GetMapping("getitems/NameAsc")
+	public ResponseEntity<?> getItemsByNameAsc() throws ItemDoesNotExistException {
+		ResponseEntity<?> responseEntity = null;
+		try {
+			List<ItemsDto> listItems = itemsServiceImpl.getItemsSortNameAsc();
+			responseEntity = new ResponseEntity<List<ItemsDto>>(listItems, HttpStatus.ACCEPTED);
+		} catch (ItemDoesNotExistException e) {
+			throw new ItemDoesNotExistException(e.getMessage());
+		} catch (Exception e) {
+			responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+
+		}
+		return responseEntity;
+	}
+	@GetMapping("getitems/Discount")
+	public ResponseEntity<?> getItemsByDiscount() throws ItemDoesNotExistException {
+		ResponseEntity<?> responseEntity = null;
+		try {
+			List<ItemsDto> listItems = itemsServiceImpl.getItemsSortDiscount();
+			responseEntity = new ResponseEntity<List<ItemsDto>>(listItems, HttpStatus.ACCEPTED);
+		} catch (ItemDoesNotExistException e) {
+			throw new ItemDoesNotExistException(e.getMessage());
+		} catch (Exception e) {
+			responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+
+		}
+		return responseEntity;
+	}
+	@GetMapping("getitems/PriceLH")
+	public ResponseEntity<?> getItemsByPriceLowHigh() throws ItemDoesNotExistException {
+		ResponseEntity<?> responseEntity = null;
+		try {
+			List<ItemsDto> listItems = itemsServiceImpl.getItemsSortPriceLowHigh();
+			responseEntity = new ResponseEntity<List<ItemsDto>>(listItems, HttpStatus.ACCEPTED);
+		} catch (ItemDoesNotExistException e) {
+			throw new ItemDoesNotExistException(e.getMessage());
+		} catch (Exception e) {
+			responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+
+		}
+		return responseEntity;
+	}
+	@GetMapping("getitems/PriceHL")
+	public ResponseEntity<?> getItemsByPriceHighLow() throws ItemDoesNotExistException {
+		ResponseEntity<?> responseEntity = null;
+		try {
+			List<ItemsDto> listItems = itemsServiceImpl.getItemsSortPriceHighLow();
+			responseEntity = new ResponseEntity<List<ItemsDto>>(listItems, HttpStatus.ACCEPTED);
+		} catch (ItemDoesNotExistException e) {
+			throw new ItemDoesNotExistException(e.getMessage());
+		} catch (Exception e) {
+			responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+
+		}
+		return responseEntity;
+	}
 	@GetMapping("searchitems/{itemName}")
 	public ResponseEntity<?> searchItems(@PathVariable("itemName") String itemname) throws ItemDoesNotExistException {
 		ResponseEntity<?> responseEntity = null;

@@ -25,7 +25,6 @@ public class CartController {
 	@Autowired
 	CartServiceImpl cartServiceImpl;
 
-	
 	@PostMapping("addtocart/{customerEmail}/{itemName}/{cartQuantity}")
 	public ResponseEntity<?> addToCart(@PathVariable("customerEmail") String customerEmail,
 			@PathVariable("itemName") String itemName, @PathVariable("cartQuantity") Integer cartQuantity) {
@@ -41,34 +40,27 @@ public class CartController {
 	}
 
 	@GetMapping("getallcartitems/{customerEmail}")
-	public ResponseEntity<?> getCartItems(@PathVariable("customerEmail") String customerEmail)throws CartDoesNotExistException  {
+	public ResponseEntity<?> getCartItems(@PathVariable("customerEmail") String customerEmail)
+			throws CartDoesNotExistException {
 		ResponseEntity<?> responseEntity = null;
-		try {
-			List<CartDto> message = cartServiceImpl.getAllCartItems(customerEmail);
-			responseEntity = new ResponseEntity<List<CartDto>>(message, HttpStatus.ACCEPTED);
-		} 
-		catch(CartDoesNotExistException e) {
-			throw new CartDoesNotExistException(e.getMessage());
-		}
-		catch (Exception e) {
-			responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 
-		}
+		List<CartDto> message = cartServiceImpl.getAllCartItems(customerEmail);
+		responseEntity = new ResponseEntity<List<CartDto>>(message, HttpStatus.ACCEPTED);
+
 		return responseEntity;
 	}
 
 	@DeleteMapping("removecartitem/{customerEmail}/{itemName}/{cartQuantity}")
 	public ResponseEntity<?> removeFromCart(@PathVariable("customerEmail") String customerEmail,
-			@PathVariable("itemName") String itemName, @PathVariable("cartQuantity") Integer cartQuantity)throws CartDoesNotExistException  {
+			@PathVariable("itemName") String itemName, @PathVariable("cartQuantity") Integer cartQuantity)
+			throws CartDoesNotExistException {
 		ResponseEntity<?> responseEntity = null;
 		try {
 			String message = cartServiceImpl.deleteCartItem(customerEmail, itemName, cartQuantity);
 			responseEntity = new ResponseEntity<String>(message, HttpStatus.ACCEPTED);
-		} 
-		catch(CartDoesNotExistException e) {
+		} catch (CartDoesNotExistException e) {
 			throw new CartDoesNotExistException(e.getMessage());
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 
 		}
@@ -77,13 +69,13 @@ public class CartController {
 
 	@PostMapping("addcartitem/{customerEmail}/{itemName}/{cartQuantity}")
 	public ResponseEntity<?> addQuantityToCart(@PathVariable("customerEmail") String customerEmail,
-			@PathVariable("itemName") String itemName, @PathVariable("cartQuantity") Integer cartQuantity)  {
+			@PathVariable("itemName") String itemName, @PathVariable("cartQuantity") Integer cartQuantity) {
 		ResponseEntity<?> responseEntity = null;
 		try {
 			String message = cartServiceImpl.addItemsToCart(customerEmail, itemName, cartQuantity);
 			responseEntity = new ResponseEntity<String>(message, HttpStatus.ACCEPTED);
 		}
-		
+
 		catch (Exception e) {
 			responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 
@@ -98,11 +90,9 @@ public class CartController {
 		try {
 			String message = cartServiceImpl.deleteWholeCartItem(customerEmail, itemName);
 			responseEntity = new ResponseEntity<String>(message, HttpStatus.ACCEPTED);
-		}
-		catch(CartDoesNotExistException e) {
+		} catch (CartDoesNotExistException e) {
 			throw new CartDoesNotExistException(e.getMessage());
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 
 		}

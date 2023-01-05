@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap");
 .dashboard-main-cards {
   display: flex;
   justify-content: center;
@@ -7,6 +7,10 @@
 }
 .dashboard-main-container {
   background-color: #f8f8f8;
+}
+.dashboard-main-header {
+  display: flex;
+  justify-content: space-between;
 }
 .dashboard-main-title {
   background-color: #f8f8f8;
@@ -17,8 +21,33 @@
   margin-left: 1rem;
   padding-top: 1rem;
 }
+.dashboard-main-dropdrown-title {
+  margin-right: 12px;
+  font-size: 13px;
+  font-family: "Noto Sans", sans-serif;
+  color: #333;
+}
+.dashboard-main-dropdown {
+  margin-top: 1rem;
+  margin-right: 15px;
+  width: 11rem;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem;
+  font-family: "Noto Sans", sans-serif;
+  color: #333;
+  font-size: 12px;
+  outline: none;
+}
+.dashboard-main-option {
+  width: 3rem;
+  font-weight: 500;
+  color: #747474;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
 .dashboard-card {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   color: #666;
   font-size: 16px;
   padding: 12px;
@@ -52,7 +81,7 @@
   margin: auto;
 }
 .dashboard-card-item-name {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   color: #212121;
   font-size: 13px;
   font-weight: 500;
@@ -106,7 +135,7 @@
   color: rgba(33, 33, 33, 0.87);
 }
 .dashboard-card-item-add {
-   font-family: "Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;;
+  font-family: "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   text-align: left;
   color: #ff6f61;

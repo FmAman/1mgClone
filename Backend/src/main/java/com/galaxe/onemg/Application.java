@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.galaxe.onemg.mapper.AddressMapper;
+import com.galaxe.onemg.mapper.AddressMapperImpl;
 import com.galaxe.onemg.mapper.CartMapper;
 import com.galaxe.onemg.mapper.CartMapperImpl;
 import com.galaxe.onemg.mapper.ItemsMapper;
@@ -32,5 +34,10 @@ public class Application {
 	@Bean
 	public CartMapper addCartItem() {
 		return new CartMapperImpl();
+	}
+	
+	@Bean
+	public AddressMapper addAddress() {
+		return new AddressMapperImpl();
 	}
 }

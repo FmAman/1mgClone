@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap");
+.cart-not-found-main {
+  font-family: "Noto Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 75px;
+  padding-right: 0px;
+  padding-bottom: 75px;
+  padding-left: 0px;
+}
+.cart-not-found-image {
+  height: 132px;
+  margin-bottom: 24px;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+}
+.cart-not-found-text {
+  font-weight: 400;
+  padding-top: 16px;
+  padding-right: 0px;
+  padding-bottom: 24px;
+  padding-left: 0px;
+}
+.cart-not-found-button {
+  background-color: #ff6f61;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  border: none;
+}

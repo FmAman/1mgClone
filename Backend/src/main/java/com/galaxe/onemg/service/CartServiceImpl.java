@@ -77,7 +77,7 @@ public class CartServiceImpl implements CartService {
 	public List<CartDto> getAllCartItems(String customerEmail) throws CartDoesNotExistException {
 		User user = userRepository.findByCustomerEmail(customerEmail);
 		List<Cart> cart = cartRepository.findByUser(user);
-		if (cart == null) {
+		if (cart.isEmpty()) {
 			throw new CartDoesNotExistException("No Items In Cart Exists");
 		}
 		List<Cart> allCartList = cartRepository.findByUser(user);

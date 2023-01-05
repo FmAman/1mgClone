@@ -44,6 +44,7 @@ function Login({passSign,passLogin}) {
           </div>
         </div>
         <div className="login-right-main">
+        <form>
           <div className="login-right-cancel">
             <GrClose onClick={()=>
                 passLogin(false)}/>
@@ -77,6 +78,7 @@ function Login({passSign,passLogin}) {
             </div>
             <div className="login-right-button-main">
               <button className="login-right-button"
+              type="submit"
               onClick={()=>{
                 loginUser();
                 passLogin(false);
@@ -97,7 +99,7 @@ function Login({passSign,passLogin}) {
              
             </div>
             <div className="login-right-needhelp">Need Help? Get In Touch</div>
-          </div>
+          </div></form>
         </div>
       </div>
     </div>

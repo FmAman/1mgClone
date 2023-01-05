@@ -9,21 +9,28 @@ function CarouselImage() {
       <div className="carousel-image-upper-main">
         <div className="carousel-image-upper-left">
           <Carousel>
-            <Carousel.Item interval={2500}>
+            <Carousel.Item interval={2000}>
               <img
                 className="carousel-image-upper-left-picture"
                 src="https://onemg.gumlet.io/eaa47bc6-c205-4c12-b0ef-cfe120c05de1_1670229214.png"
                 alt="First slide"
               />
             </Carousel.Item>
-            <Carousel.Item interval={2500}>
+            <Carousel.Item interval={2000}>
+              <img
+                className="carousel-image-upper-left-picture"
+                src="https://onemg.gumlet.io/c0aa6172-44cf-470a-a75e-e0c6fc4cf362_1670405053.png"
+                alt="First slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item interval={2000}>
               <img
                 className="carousel-image-upper-left-picture"
                 src="https://onemg.gumlet.io/b58b9e0e-a6f7-45b5-a28a-dd833066c127.png"
                 alt="Second slide"
               />
             </Carousel.Item>
-            <Carousel.Item interval={2500}>
+            <Carousel.Item interval={2000}>
               <img
                 className="carousel-image-upper-left-picture"
                 src="https://onemg.gumlet.io/531b5819-7aec-4ee4-a2f9-d15d3a066d1c_1666072358.jpg"

@@ -3,59 +3,72 @@ import "../styles/Cart.css";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const [ApiCartData, setApiCartData] = useState([]);
   const [email, setEmail] = useState("");
-  const [itemName, SetItemName] = useState(null);
+  const [count,setCount] = useState(0);
+  const navigate = useNavigate();
 
   let mrpTotal = ApiCartData.reduce(function (prev, current) {
     return prev + current.items.mrpPrice * current.cartQuantity;
   }, 0);
 
   let discountTotal = ApiCartData.reduce(function (prev, current) {
-    return prev + (current.items.mrpPrice-current.items.sellingPrice) * current.cartQuantity;
+    return (
+      prev +
+      (current.items.mrpPrice - current.items.sellingPrice) *
+        current.cartQuantity
+    );
   }, 0);
 
   let priceTotal = ApiCartData.reduce(function (prev, current) {
-    return prev + (current.items.sellingPrice) * current.cartQuantity;
+    return prev + current.items.sellingPrice * current.cartQuantity;
   }, 0);
 
   useEffect(() => {
     setEmail(localStorage.getItem("emailAddress"));
-    // alert(email);
+    console.log(email)
     axios
       .get(`http://localhost:8888/getallcartitems/${email}`)
       .then((response) => {
         setApiCartData(response.data);
-        // SetItemName(response.data[0].items.itemName);
-        console.log(itemName);
-        console.log(response.data[0].items);
-      });
-  }, [email]);
-  
+        setCount(response.data.length);
+      })
+      
+      .catch((error)=>{
+        if(error.response.request.status==404){
+          navigate("/cartnotfound")
+        }
+      })
+      ;
+    }, [email]);
+
   const reduceItemQuantityCart = (data) => {
     setEmail(localStorage.getItem("emailAddress"));
-    axios.delete(`http://localhost:8888/removecartitem/${email}/${data.items.itemName}/1`);
-    window.setTimeout(function () {
-      window.location.reload();
-    }, 500);
-  };
- 
-  const increaseItemQuantityCart = (data) => {
-    setEmail(localStorage.getItem("emailAddress"));
-    axios.post(`http://localhost:8888/addcartitem/${email}/${data.items.itemName}/1`);
+    axios.delete(
+      `http://localhost:8888/removecartitem/${email}/${data.items.itemName}/1`
+    );
     window.setTimeout(function () {
       window.location.reload();
     }, 500);
   };
 
-  const deleteItemFromCart = () => {
+  const increaseItemQuantityCart = (data) => {
     setEmail(localStorage.getItem("emailAddress"));
-    // SetItemName(data.items.itemName)
-    console.log(itemName)
+    axios.post(
+      `http://localhost:8888/addcartitem/${email}/${data.items.itemName}/1`
+    );
+    window.setTimeout(function () {
+      window.location.reload();
+    }, 500);
+  };
+
+  const deleteItemFromCart = (data) => {
+    setEmail(localStorage.getItem("emailAddress"));
     axios.delete(
-      `http://localhost:8888/deleteitemcart/${email}/${itemName}`,
+      `http://localhost:8888/deleteitemcart/${email}/${data.items.itemName}`
     );
     window.setTimeout(function () {
       window.location.reload();
@@ -65,7 +78,7 @@ function Cart() {
     <div className="cart-main-container">
       <div className="cart-main-title">Cart Checkout </div>
       <div className="cart-main">
-        <div className="cart-main-map">
+        <div className="cart-main-map" >
           {ApiCartData.map((data) => {
             return (
               <div className="cart-left-main">
@@ -92,7 +105,7 @@ function Cart() {
                   <div
                     className="cart-left-delete"
                     onClick={() => {
-                      deleteItemFromCart();
+                      deleteItemFromCart(data);
                     }}
                   >
                     <img src="https://img.1mg.com/images/delete_icon.svg" />
@@ -106,7 +119,6 @@ function Cart() {
                         alt="remove"
                         onClick={() => {
                           reduceItemQuantityCart(data);
-                          
                         }}
                       />
                     </div>
@@ -122,7 +134,6 @@ function Cart() {
                         alt="add"
                         onClick={() => {
                           increaseItemQuantityCart(data);
-                          
                         }}
                       />
                     </div>
@@ -157,7 +168,13 @@ function Cart() {
           </div>
           <div className="cart-right-cart-button-main">
             <br />
-            <button className="cart-right-button">CHECKOUT</button>
+            <button className="cart-right-button"
+            onClick={()=>{
+              navigate("/address-page")
+
+            }
+              }
+            >CHECKOUT</button>
           </div>
         </div>
       </div>

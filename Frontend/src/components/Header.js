@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/Header.css";
 import logo from "../images/1mg_Logo.png";
 import { GrCart } from "react-icons/gr";
@@ -7,15 +7,19 @@ import Login from "./Login";
 import Signup from "./Signup";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { Logout } from "@mui/icons-material";
+import axios from "axios";
 
 function Header() {
   const [loginState, setLoginState] = useState(false);
   const [signupState, setSignupState] = useState(false);
   const [role, setRole] = useState(null);
   const [name, SetName] = useState(null);
+  const [ApiCartData, setApiCartData] = useState([]);
+  const [count, setCount] = useState(0);
+  const [email, setEmail] = useState("");
+
   const navigate = useNavigate();
-  
+
   const logout = () => {
     localStorage.clear();
     navigate("/");
@@ -26,7 +30,14 @@ function Header() {
   useEffect(() => {
     setRole(localStorage.getItem("role"));
     SetName(localStorage.getItem("customerName"));
-  }, []);
+    setEmail(localStorage.getItem("emailAddress"));
+    axios
+      .get(`http://localhost:8888/getallcartitems/${email}`)
+      .then((response) => {
+        setApiCartData(response.data);
+        setCount(response.data.length);
+      });
+  }, [email]);
   return (
     <div className="main-header-container">
       <div className="header-left-main">
@@ -105,7 +116,7 @@ function Header() {
         <div className="header-shopping-cart" onClick={() => navigate("/cart")}>
           <GrCart className="header-cart-icon" />
         </div>
-        <div className="header-cart-count">1</div>
+        <div className="header-cart-count">{count}</div>
         <div className="header-need-help">Need Help?</div>
       </div>
       {loginState && (

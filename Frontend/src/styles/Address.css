@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap");
+
+.address-main-container {
+  border-bottom: 1px solid #c7c7c7;
+  background: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  font-size: 12px;
+  padding: 16px;
+  max-width: 40%;
+  margin-top: 20px;
+  margin-left: 8rem;
+  line-height: 1.6;
+}
+.address-main {
+  display: flex;
+  font-size: 12px;
+  color: #212121;
+  font-family: "Noto Sans", sans-serif;
+  justify-content: space-between;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+  accent-color: orangered;
+  height: 0.9rem;
+  width: 0.9rem;
+}
+.address-main-body {
+  width: 80%;
+}
+.address-main-select-right {
+  padding-left: 32px;
+}
+.address-main-select-right-icon {
+  cursor: pointer;
+  size: 15;
+  z-index: -1;
+}
+.address-main-select-edit-delete-main {
+  position: absolute;
+  color: #909090;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 2rem;
+  margin-left: -3.5rem;
+  margin-top: -1.5rem;
+  z-index: 1000;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 0 2px 2px #dcdcdc;
+}
+.address-main-select-edit-delete-text {
+  font-size: 11px;
+  font-weight: 400;
+}
+.address-main-select-edit-delete-text:hover {
+  font-size: 11px;
+  font-weight: 400;
+  color: #ff6f61;
+  cursor: pointer;
+}
+.address-body-name {
+  font-weight: 700;
+  text-transform: uppercase;
+}

@@ -1,9 +1,10 @@
 package com.galaxe.onemg.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,6 +52,75 @@ public class ItemsServiceImpl implements ItemsService {
 		return listDtoItems;
 	}
 
+	@Override
+	public List<ItemsDto> getItemsSortNameDesc() throws ItemDoesNotExistException {
+		List<ItemsDto> listDtoItems = new ArrayList<ItemsDto>();
+		listDtoItems = getItems();
+		Comparator<ItemsDto> nameCompare = (o1, o2) -> {
+			if (o1.getItemName().compareToIgnoreCase(o2.getItemName()) > 0)
+				return -1;
+			else
+				return 0;
+		};
+		Collections.sort(listDtoItems, nameCompare);
+		return listDtoItems;
+	}
+
+	@Override
+	public List<ItemsDto> getItemsSortNameAsc() throws ItemDoesNotExistException {
+		List<ItemsDto> listDtoItems = new ArrayList<ItemsDto>();
+		listDtoItems = getItems();
+		Comparator<ItemsDto> nameCompare = (o1, o2) -> {
+			if (o1.getItemName().compareToIgnoreCase(o2.getItemName()) < 0)
+				return -1;
+			else
+				return 0;
+		};
+		Collections.sort(listDtoItems, nameCompare);
+		return listDtoItems;
+	}
+
+	@Override
+	public List<ItemsDto> getItemsSortDiscount() throws ItemDoesNotExistException {
+		List<ItemsDto> listDtoItems = new ArrayList<ItemsDto>();
+		listDtoItems = getItems();
+		Comparator<ItemsDto> discountCompare = (o1, o2) -> {
+			if (o1.getDiscount() > o2.getDiscount())
+				return -1;
+			else
+				return 0;
+		};
+		Collections.sort(listDtoItems, discountCompare);
+		return listDtoItems;
+	}
+
+	@Override
+	public List<ItemsDto> getItemsSortPriceLowHigh() throws ItemDoesNotExistException {
+		List<ItemsDto> listDtoItems = new ArrayList<ItemsDto>();
+		listDtoItems = getItems();
+		Comparator<ItemsDto> priceCompare = (o1, o2) -> {
+			if (o1.getSellingPrice() < o2.getSellingPrice())
+				return -1;
+			else
+				return 0;
+		};
+		Collections.sort(listDtoItems, priceCompare);
+		return listDtoItems;
+	}
+
+	@Override
+	public List<ItemsDto> getItemsSortPriceHighLow() throws ItemDoesNotExistException {
+		List<ItemsDto> listDtoItems = new ArrayList<ItemsDto>();
+		listDtoItems = getItems();
+		Comparator<ItemsDto> priceCompare = (o1, o2) -> {
+			if (o1.getSellingPrice() > o2.getSellingPrice())
+				return -1;
+			else
+				return 0;
+		};
+		Collections.sort(listDtoItems, priceCompare);
+		return listDtoItems;
+	}
 	@Override
 	public List<ItemsDto> searchItemByName(String itemName) throws ItemDoesNotExistException {
 		List<Items> allItemListByName = itemRepository.findByItemNameContaining(itemName);

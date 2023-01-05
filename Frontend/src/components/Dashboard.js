@@ -3,19 +3,30 @@ import { useEffect } from "react";
 import "../styles/Dashboard.css";
 import axios from "axios";
 import EditItems from "./EditItems";
+import Login from "./Login";
+import Signup from "./Signup";
 
 function Dashboard({ searchInput }) {
   const [ApiData, setApiData] = useState([]);
   const [editState, setEditState] = useState(false);
-  const [emails, setEmails] = useState("");
+  const [sort, setSort] = useState("Relevance");
+  const [email, setEmail] = useState("");
   const [itemName, SetItemName] = useState(null);
   const [role, setRole] = useState(null);
   const [quantity, SetQuantity] = useState(null);
   const [mrpPrice, SetMrpPrice] = useState(null);
   const [sellingPrice, SetSellingPrice] = useState(null);
+  const [loginState, setLoginState] = useState(false);
+  const [signupState, setSignupState] = useState(false);
+
+  const handleSortChange = (e) => {
+    setSort(e.target.value);
+  };
 
   useEffect(() => {
     setRole(localStorage.getItem("role"));
+    setEmail(localStorage.getItem("emailAddress"));
+
     if (searchInput != "") {
       axios
         .get(`http://localhost:8888/searchitems/${searchInput}`)
@@ -23,11 +34,11 @@ function Dashboard({ searchInput }) {
           setApiData(response.data);
         });
     } else {
-      axios.get(`http://localhost:8888/getitems`).then((response) => {
+      axios.get(`http://localhost:8888/getitems/${sort}`).then((response) => {
         setApiData(response.data);
       });
     }
-  }, [searchInput]);
+  }, [searchInput, sort]);
 
   const storeToState = (data) => {
     let { itemName, quantity, mrpPrice, sellingPrice } = data;
@@ -38,33 +49,54 @@ function Dashboard({ searchInput }) {
   };
 
   const storeToLocal = (data) => {
-    let { itemName, quantity, mrpPrice, sellingPrice ,imageUrl,discount} = data;
-    localStorage.setItem("itemName",itemName);
-    localStorage.setItem("quantity",quantity);
-    localStorage.setItem("mrpPrice",mrpPrice);
-    localStorage.setItem("sellingPrice",sellingPrice);
-    localStorage.setItem("imageUrl",imageUrl);
-    localStorage.setItem("discount",discount);
+    let { itemName, quantity, mrpPrice, sellingPrice, imageUrl, discount } =
+      data;
+    localStorage.setItem("itemName", itemName);
+    localStorage.setItem("quantity", quantity);
+    localStorage.setItem("mrpPrice", mrpPrice);
+    localStorage.setItem("sellingPrice", sellingPrice);
+    localStorage.setItem("imageUrl", imageUrl);
+    localStorage.setItem("discount", discount);
   };
 
   const addToCart = (data) => {
-    setEmails(localStorage.getItem("emailAddress"));
-    console.log(localStorage.getItem("emailAddress"));
-    // let emailAdd = localStorage.getItem("emailAddress");
-    // SetEmail(emailAdd);
-    console.log(data.itemName);
-    console.log(emails);
-    axios.post(
-      `http://localhost:8888/addtocart/${emails}/${data.itemName}/1`,
-      {}
-    );
+    axios.post(`http://localhost:8888/addtocart/${email}/${data.itemName}/1`);
     window.setTimeout(function () {
       window.location.reload();
-    }, 4500);
+    }, 1500);
   };
+
   return (
     <div className="dashboard-main-container">
-      <div className="dashboard-main-title">Deals of the day</div>
+      <div className="dashboard-main-header">
+        <div className="dashboard-main-title">Deals of the day</div>
+        <div className="dashboard-main-sort">
+          <span className="dashboard-main-dropdrown-title">Sort By</span>
+          <select
+            className='dashboard-main-dropdown'
+            onChange={handleSortChange}
+          >
+            <option value="Relevance" className="dashboard-main-option">
+              Relevance
+            </option>
+            <option value="NameAsc" className="dashboard-main-option">
+              Name (A-Z)
+            </option>
+            <option value="NameDsc" className="dashboard-main-option">
+              Name (Z-A)
+            </option>
+            <option value="PriceLH" className="dashboard-main-option">
+              Price (Low to High)
+            </option>
+            <option value="PriceHL" className="dashboard-main-option">
+              Price (High to Low)
+            </option>
+            <option value="Discount" className="dashboard-main-option">
+              Discount
+            </option>
+          </select>
+        </div>
+      </div>
       <div
         className="dashboard-main-cards"
         style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr" }}
@@ -109,15 +141,13 @@ function Dashboard({ searchInput }) {
                   <button
                     className="dashboard-card-item-add"
                     onClick={() => {
-                      storeToState(data);
-                      addToCart(data);
+                      setLoginState(true);
                     }}
                   >
                     ADD
                   </button>
-                )} 
+                )}
                 {role == "ADMIN" && (
-                  
                   <button
                     className="dashboard-card-item-add"
                     onClick={() => {
@@ -127,7 +157,6 @@ function Dashboard({ searchInput }) {
                   >
                     EDIT
                   </button>
-                  
                 )}
               </div>
             </div>
@@ -135,6 +164,12 @@ function Dashboard({ searchInput }) {
         })}
       </div>
       {editState && <EditItems passEdit={setEditState} passApi={ApiData} />}
+      {loginState && (
+        <Login passLogin={setLoginState} passSign={setSignupState} />
+      )}
+      {signupState && (
+        <Signup passSign={setSignupState} passLogin={setLoginState} />
+      )}
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { GrClose } from "react-icons/gr";
 import axios from "axios";
 import { useEffect } from "react";
 
-function EditItems({passEdit,passApi}) {
+function EditItems({ passEdit }) {
   const [itemName, setItemName] = useState("");
   const [imageUrl, setItemURL] = useState("");
   const [quantity, setItemQuantity] = useState("");
@@ -12,17 +12,17 @@ function EditItems({passEdit,passApi}) {
   const [discount, setItemDiscount] = useState("");
   const [sellingPrice, setItemSellingPrice] = useState("");
 
-  useEffect(()=>{
-      setItemName( localStorage.getItem("itemName"));
-      setItemDiscount(localStorage.getItem("discount"));
-      setItemMRP(localStorage.getItem("mrpPrice"));
-      setItemQuantity(localStorage.getItem("quantity"));
-      setItemURL(localStorage.getItem("imageUrl"));
-      setItemSellingPrice(localStorage.getItem("sellingPrice"));
-  },[])
+  useEffect(() => {
+    setItemName(localStorage.getItem("itemName"));
+    setItemDiscount(localStorage.getItem("discount"));
+    setItemMRP(localStorage.getItem("mrpPrice"));
+    setItemQuantity(localStorage.getItem("quantity"));
+    setItemURL(localStorage.getItem("imageUrl"));
+    setItemSellingPrice(localStorage.getItem("sellingPrice"));
+  }, []);
   const editItem = () => {
     axios.put(`http://localhost:8888/edititems`, {
-        imageUrl,
+      imageUrl,
       itemName,
       quantity,
       mrpPrice,
@@ -30,8 +30,8 @@ function EditItems({passEdit,passApi}) {
       sellingPrice,
     });
     window.setTimeout(function () {
-        window.location.reload();
-      }, 1000);
+      window.location.reload();
+    }, 1000);
   };
   return (
     <div className="edit-main-wrapper">
@@ -54,7 +54,17 @@ function EditItems({passEdit,passApi}) {
         </div>
         <div className="edit-right-main">
           <div className="edit-right-cancel">
-            <GrClose onClick={() => passEdit(false)} />
+            <GrClose
+              onClick={() => {
+                passEdit(false);
+                localStorage.removeItem("sellingPrice");
+                localStorage.removeItem("imageUrl");
+                localStorage.removeItem("discount");
+                localStorage.removeItem("quantity");
+                localStorage.removeItem("itemName");
+                localStorage.removeItem("mrpPrice");
+              }}
+            />
           </div>
           <div className="edit-right-container">
             <div className="edit-right-head">Edit Item</div>
@@ -101,9 +111,7 @@ function EditItems({passEdit,passApi}) {
                 // placeholder="Enter Item MRP"
                 className="edit-right-input"
                 value={mrpPrice}
-                onChange={(e) => 
-                  setItemMRP(e.target.value)
-                }
+                onChange={(e) => setItemMRP(e.target.value)}
               ></input>
             </div>
 
@@ -111,7 +119,6 @@ function EditItems({passEdit,passApi}) {
               <input
                 type="text"
                 id="itemdiscount"
-                // placeholder="Enter Item Discount"
                 className="edit-right-input"
                 value={discount}
                 onChange={(e) => {
@@ -138,7 +145,12 @@ function EditItems({passEdit,passApi}) {
                 onClick={() => {
                   editItem();
                   passEdit(false);
-                 
+                  localStorage.removeItem("sellingPrice");
+                  localStorage.removeItem("imageUrl");
+                  localStorage.removeItem("discount");
+                  localStorage.removeItem("quantity");
+                  localStorage.removeItem("itemName");
+                  localStorage.removeItem("mrpPrice");
                 }}
               >
                 Edit Item

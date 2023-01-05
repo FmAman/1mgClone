@@ -12,6 +12,11 @@ public interface ItemsService {
 public String addItem(Items items) throws ItemAlreadyExistsException;
 public String editItems(Items items) throws ItemDoesNotExistException;
 public List<ItemsDto> getItems() throws ItemDoesNotExistException;
+public List<ItemsDto> getItemsSortNameDesc() throws ItemDoesNotExistException;
+public List<ItemsDto> getItemsSortNameAsc() throws ItemDoesNotExistException;
+public List<ItemsDto> getItemsSortDiscount() throws ItemDoesNotExistException;
+public List<ItemsDto> getItemsSortPriceHighLow() throws ItemDoesNotExistException;
+public List<ItemsDto> getItemsSortPriceLowHigh() throws ItemDoesNotExistException;
 public List<ItemsDto> searchItemByName(String itemName)throws ItemDoesNotExistException;
 public String deleteItem(String itemName) throws ItemDoesNotExistException;
 }
